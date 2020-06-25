@@ -1,0 +1,34 @@
+{
+  "name": "ary2json",
+  "version": "1.0.0",
+  "description": "Convert text array to JSON",
+  "main": "src/ary2json.js",
+  "bin": {
+    "csvproperty": "./src/ary2json-cli.js"
+  },
+  "scripts": {
+    "test": "mocha",
+    "dev": "node ./src/ary2json-cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/afrontend/ary2json.git"
+  },
+  "keywords": [
+    "ary",
+    "json",
+    "i18n"
+  ],
+  "author": "<autoscripts@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/afrontend/ary2json/issues"
+  },
+  "homepage": "https://github.com/afrontend/ary2json#readme",
+  "devDependencies": {
+    "mocha": "^7.1.2"
+  },
+  "dependencies": {
+    "csv-property": "^1.0.2"
+  }
+}
