@@ -1,17 +1,17 @@
 const { toObject, toCSVString } = require('csv-property')
 const G = {
-  numberOfLanguage: 2,
+  numberOfLanguageColumn: 2,
   delimiter: ';'
 }
 
-// pseudo range(G.numberOfLanguage)
+// pseudo range(G.numberOfLanguageColumn)
 function range(count) {
   return [...Array(count).keys()].map(item => [])
 }
 
 function getPathText(ary) {
   const langs = []
-  range(G.numberOfLanguage).forEach(() => {
+  range(G.numberOfLanguageColumn).forEach(() => {
     langs.push(ary.shift())
   })
   const path = ary.map(e => e.trim()).join(G.delimiter)
@@ -20,7 +20,7 @@ function getPathText(ary) {
 }
 
 function getObjects(rows) {
-  const langs = range(G.numberOfLanguage)
+  const langs = range(G.numberOfLanguageColumn)
 
   rows.forEach(row => {
     const [ path, ...textAry ] = getPathText(row)
@@ -36,10 +36,10 @@ function getObjects(rows) {
 
 /**
  * @param {array} rows - [[ '로그인', 'login', 'path1', 'path2', 'path3' ]]
- * @param {number} numberOfLanguage - a number of language column in row [ '로그인', 'login', ... ]
+ * @param {object} { numberOfLanguageColumn }  - a number of language column in row [ '로그인', 'login', ... ]
  * @return {array} - a array of language object
  * @example
- * textPathsAryToObj([[ '로그인', 'login', 'path1', 'path2', 'path3' ]], 2) {
+ * textPathsAryToObj([[ '로그인', 'login', 'path1', 'path2', 'path3' ]], { numberOfLanguageColumn: 2 }) {
  *  [
  *    {
  *      path1: {
@@ -58,8 +58,8 @@ function getObjects(rows) {
  *  ]
  */
 
-function textPathsAryToObj(rows, numberOfLanguage = 2) {
-  G.numberOfLanguage = numberOfLanguage
+function textPathsAryToObj(rows, { numberOfLanguageColumn } = { numberOfLanguageColumn: 2 }) {
+  G.numberOfLanguageColumn = numberOfLanguageColumn
   return getObjects(rows)
 }
 
