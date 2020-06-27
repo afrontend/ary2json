@@ -1,6 +1,6 @@
 {
   "name": "ary2json",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Convert text array to JSON",
   "main": "src/ary2json.js",
   "bin": {
