@@ -57,4 +57,4 @@ objToTextPathsAry(ko).forEach(function (s) {
 
 ## License
 
-MIT © Bob Hwang
+MIT © [Bob Hwang](https://afrontend.github.io)
