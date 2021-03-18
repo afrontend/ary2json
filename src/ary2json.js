@@ -82,8 +82,27 @@ function toJSONString(obj) {
   return JSON.stringify(obj, null, 2).replace(/"/g,"'").replace(/(.*)'(.*)':(.*)/g, replacer)
 }
 
+function toFile (fs, obj, fileName) {
+  if (!fs || ('writeFile' in fs)) {
+    return console.error('Error, invalid fs')
+  }
+  if (!obj) {
+    return console.error('Error, invalid obj')
+  }
+  if (!fileName) {
+
+    return console.error('Error, invalid fileName')
+  }
+  const jsonStr = toJSONString(obj)
+  fs.writeFile(fileName, 'export default ' + jsonStr + "\n", (err) => {
+    if (err) return console.error(err);
+    console.log('Stored to', fileName);
+  });
+}
+
 module.exports = {
   textPathsAryToObj,
   objToTextPathsAry,
-  toJSONString
+  toJSONString,
+  toFile
 }
