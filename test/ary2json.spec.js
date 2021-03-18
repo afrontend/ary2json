@@ -52,3 +52,44 @@ describe('textPathsAryToObj', function () {
     ])
   })
 })
+
+describe('toJSONString', function () {
+  it('Object to JSON string', function () {
+    const obj = 
+[
+  {
+    path1: {
+      path2: {
+        path3: '로그인'
+      }
+    }
+  },
+  {
+    path1: {
+      path2: {
+        path3: 'login'
+      }
+    }
+  }
+]
+    const before =
+`[
+  {
+    path1: {
+      path2: {
+        path3: '로그인'
+      }
+    }
+  },
+  {
+    path1: {
+      path2: {
+        path3: 'login'
+      }
+    }
+  }
+]`
+    const after = toJSONString(obj)
+    return assert.strictEqual(before, after)
+  })
+})
