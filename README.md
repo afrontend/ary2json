@@ -15,7 +15,7 @@ npm install ary2json
 ## Usage (text array to JSON)
 
 ```javascript
-const { textPathsAryToObj, objToTextPathsAry, toJSONString } = require('./ary2json')
+const { textPathsAryToObj, objToTextPathsAry, toJSONString } = require('ary2json')
 const obj = textPathsAryToObj([[ '로그인', 'login', 'path1', 'path2', 'path3' ]], {
   numberOfLanguageColumn: 2
 })
