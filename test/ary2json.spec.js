@@ -51,11 +51,27 @@ describe('textPathsAryToObj', function () {
       }
     ])
   })
+  it('null input', function () {
+    const obj = textPathsAryToObj(null, { numberOfLanguageColumn: 1 })
+    assert.deepStrictEqual(obj, [])
+  })
+  it('empty string input', function () {
+    const obj = textPathsAryToObj('', { numberOfLanguageColumn: 1 })
+    assert.deepStrictEqual(obj, [])
+  })
+  it('undefined input', function () {
+    const obj = textPathsAryToObj(undefined, { numberOfLanguageColumn: 1 })
+    assert.deepStrictEqual(obj, [])
+  })
+  it('empty array', function () {
+    const obj = textPathsAryToObj([], { numberOfLanguageColumn: 1 })
+    assert.deepStrictEqual(obj, [])
+  })
 })
 
 describe('toJSONString', function () {
   it('Object to JSON string', function () {
-    const obj = 
+    const obj =
 [
   {
     path1: {

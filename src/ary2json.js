@@ -60,6 +60,8 @@ function getObjects(rows) {
 
 function textPathsAryToObj(rows, { numberOfLanguageColumn } = { numberOfLanguageColumn: 2 }) {
   G.numberOfLanguageColumn = numberOfLanguageColumn
+  if (!Array.isArray(rows)) return []
+  if (rows.length === 0) return []
   return getObjects(rows)
 }
 
