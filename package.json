@@ -1,10 +1,10 @@
 {
   "name": "ary2json",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Convert text array to JSON",
   "main": "src/ary2json.js",
   "bin": {
-    "csvproperty": "./src/ary2json-cli.js"
+    "csvproperty": "src/ary2json-cli.js"
   },
   "scripts": {
     "test": "mocha",
