@@ -1,3 +1,4 @@
+const fs = require('fs');
 const { toObject, toCSVString } = require('csv-property')
 const G = {
   numberOfLanguageColumn: 2,
@@ -60,8 +61,6 @@ function getObjects(rows) {
 
 function textPathsAryToObj(rows, { numberOfLanguageColumn } = { numberOfLanguageColumn: 2 }) {
   G.numberOfLanguageColumn = numberOfLanguageColumn
-  if (!Array.isArray(rows)) return []
-  if (rows.length === 0) return []
   return getObjects(rows)
 }
 
@@ -84,21 +83,18 @@ function toJSONString(obj) {
   return JSON.stringify(obj, null, 2).replace(/"/g,"'").replace(/(.*)'(.*)':(.*)/g, replacer)
 }
 
-function toFile (fs, obj, fileName) {
-  if (!fs || ('writeFile' in fs)) {
-    return console.error('Error, invalid fs')
-  }
+function toFile (obj, fileName) {
   if (!obj) {
-    return console.error('Error, invalid obj')
+    return console.error('Invalid obj: ' + fileName)
   }
   if (!fileName) {
-
-    return console.error('Error, invalid fileName')
+    return console.error('Invalid fileName: ' + fileName)
   }
   const jsonStr = toJSONString(obj)
-  fs.writeFile(fileName, 'export default ' + jsonStr + "\n", (err) => {
+/* eslint-disable comma-dangle */
+  fs.writeFile(fileName, '/* eslint-disable comma-dangle */\nexport default ' + jsonStr + "\n", (err) => {
     if (err) return console.error(err);
-    console.log('Stored to', fileName);
+    console.log('Locale file stored to', fileName);
   });
 }
 
